@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AndroidGenesisSample/AndroidGenesisSample.iml" filepath="$PROJECT_DIR$/AndroidGenesisSample/AndroidGenesisSample.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenesisAndroid/GenesisAndroid.iml" filepath="$PROJECT_DIR$/GenesisAndroid/GenesisAndroid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/android_app.iml" filepath="$PROJECT_DIR$/android_app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GenesisAndroid/GenesisAndroid/sdk.iml" filepath="$PROJECT_DIR$/GenesisAndroid/GenesisAndroid/sdk.iml" />
+    </modules>
+  </component>
+</project>
