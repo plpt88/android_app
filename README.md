@@ -1,5 +1,7 @@
 # Genesis Android Sample application
 
+[![Build Status](https://img.shields.io/travis/GenesisGateway/android_app.svg?style=flat)](https://travis-ci.org/GenesisGateway/android_app)
+
 ## Requirements
 
 - JDK >= 1.8
