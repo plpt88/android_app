@@ -6,6 +6,7 @@ import android.test.mock.MockContext;
 import com.emerchantpay.gateway.androidgenesissample.activities.TransactionDetailsActivity;
 import com.emerchantpay.gateway.androidgenesissample.handlers.TransactionDetailsHandler;
 import com.emerchantpay.gateway.genesisandroid.api.internal.request.PaymentRequest;
+import com.emerchantpay.gateway.genesisandroid.api.internal.request.TransactionTypesRequest;
 import com.emerchantpay.gateway.genesisandroid.api.models.Country;
 import com.emerchantpay.gateway.genesisandroid.api.models.Currency;
 import com.emerchantpay.gateway.genesisandroid.api.models.PaymentAddress;
@@ -14,8 +15,6 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.UUID;
 
 import static junit.framework.Assert.assertEquals;
@@ -33,7 +32,7 @@ public class TransactionDetailsHandlerUnitTest {
     private String transactionId;
 
     @Before
-    public void setup() throws IllegalAccessException, MalformedURLException {
+    public void setup() throws IllegalAccessException {
         context = new MockContext();
         transactionDetailsActivity = mock(TransactionDetailsActivity.class);
         transactionDetails = mock(TransactionDetailsHandler.class);
@@ -47,8 +46,8 @@ public class TransactionDetailsHandlerUnitTest {
                 "state", new Country().UnitedStates);
 
         // Create Transaction types
-        ArrayList<String> transactionTypes = new ArrayList<String>();
-        transactionTypes.add("sale");
+        TransactionTypesRequest transactionTypes = new TransactionTypesRequest();
+        transactionTypes.addTransaction("sale");
 
         // Init WPF API request
         paymentRequest = new PaymentRequest(context.getApplicationContext(), transactionId,

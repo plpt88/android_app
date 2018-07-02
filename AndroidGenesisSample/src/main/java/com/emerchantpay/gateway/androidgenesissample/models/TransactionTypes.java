@@ -1,7 +1,5 @@
 package com.emerchantpay.gateway.androidgenesissample.models;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -10,7 +8,7 @@ import java.util.Map;
 
 public class TransactionTypes {
 
-    private HashMap<String, String> transactionTypesMap;
+    private static HashMap<String, String> transactionTypesMap = new HashMap<String, String>();
 
     private String displayName;
     private String value;
@@ -22,6 +20,7 @@ public class TransactionTypes {
     public TransactionTypes(String displayName, String value) {
         this.displayName = displayName;
         this.value = value;
+        transactionTypesMap.put(displayName, value);
     }
 
     public static TransactionTypes authorize = new TransactionTypes("Authorize", "authorize");
@@ -29,23 +28,6 @@ public class TransactionTypes {
     public static TransactionTypes sale = new TransactionTypes("Sale", "sale");
     public static TransactionTypes sale3d = new TransactionTypes("Sale 3D", "sale3d");
     public static TransactionTypes paysafecard = new TransactionTypes("Paysafecard", "paysafecard");
-
-    // Add Transaction types
-    protected Map<String, String> addTransactionTypes() throws IllegalAccessException {
-
-        transactionTypesMap = new HashMap<String, String>();
-
-        Field[] fields = this.getClass().getDeclaredFields();
-
-        for (Field f: fields) {
-            if (Modifier.isStatic(f.getModifiers())) {
-                transactionTypesMap.put(((TransactionTypes) f.get(this)).getDisplayName(),
-                        ((TransactionTypes) f.get(this)).getValue());
-            }
-        }
-
-        return transactionTypesMap;
-    }
 
     public String getDisplayName() {
         return displayName;
@@ -57,7 +39,7 @@ public class TransactionTypes {
 
     // Get Transaction type names list
     public ArrayList<String> getListNames() throws IllegalAccessException {
-        addTransactionTypes();
+        getTransactionTypes();
 
         ArrayList<String> arrayList = new ArrayList<String>();
         arrayList.addAll(transactionTypesMap.keySet());
@@ -67,7 +49,7 @@ public class TransactionTypes {
 
     // Get Transaction type values list
     public ArrayList<String> getListValues() throws IllegalAccessException {
-        addTransactionTypes();
+        getTransactionTypes();
 
         ArrayList<String> arrayList = new ArrayList<String>();
 
@@ -76,6 +58,11 @@ public class TransactionTypes {
         }
 
         return sortArrayList(arrayList);
+    }
+
+    // Get Transaction types
+    protected Map<String, String> getTransactionTypes() {
+        return transactionTypesMap;
     }
 
     // Sort Array list

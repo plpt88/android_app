@@ -14,9 +14,12 @@ import com.emerchantpay.gateway.genesisandroid.api.constants.Endpoints;
 import com.emerchantpay.gateway.genesisandroid.api.constants.Environments;
 import com.emerchantpay.gateway.genesisandroid.api.constants.ErrorMessages;
 import com.emerchantpay.gateway.genesisandroid.api.constants.IntentExtras;
+import com.emerchantpay.gateway.genesisandroid.api.constants.KlarnaItemTypes;
 import com.emerchantpay.gateway.genesisandroid.api.constants.Locales;
+import com.emerchantpay.gateway.genesisandroid.api.constants.TransactionTypes;
 import com.emerchantpay.gateway.genesisandroid.api.internal.Genesis;
 import com.emerchantpay.gateway.genesisandroid.api.internal.request.PaymentRequest;
+import com.emerchantpay.gateway.genesisandroid.api.internal.request.TransactionTypesRequest;
 import com.emerchantpay.gateway.genesisandroid.api.internal.response.Response;
 import com.emerchantpay.gateway.genesisandroid.api.models.Country;
 import com.emerchantpay.gateway.genesisandroid.api.models.Currency;
@@ -27,8 +30,6 @@ import com.emerchantpay.gateway.genesisandroid.api.models.RiskParams;
 import com.emerchantpay.gateway.genesisandroid.api.util.Configuration;
 
 import java.math.BigDecimal;
-import java.net.MalformedURLException;
-import java.util.ArrayList;
 import java.util.HashMap;
 
 public class TransactionDetailsActivity extends Activity {
@@ -76,7 +77,7 @@ public class TransactionDetailsActivity extends Activity {
         }
     }
 
-    public void loadPaymentView(View view) throws IllegalAccessException, MalformedURLException {
+    public void loadPaymentView(View view) throws IllegalAccessException {
         // Get param values from UI
         transactionDetails.getUIParams();
 
@@ -95,8 +96,8 @@ public class TransactionDetailsActivity extends Activity {
                 new Country().getCountry(transactionDetails.getCountry()));
 
         // Create Transaction types
-        ArrayList<String> transactionTypes = new ArrayList<String>();
-        transactionTypes.add(transactionDetails.getTransactionType());
+        TransactionTypesRequest transactionTypes = new TransactionTypesRequest();
+        transactionTypes.addTransaction(transactionDetails.getTransactionType());
 
         // Risk params
         RiskParams riskParams = new RiskParams("1002547", "1DA53551-5C60-498C-9C18-8456BDBA74A9",

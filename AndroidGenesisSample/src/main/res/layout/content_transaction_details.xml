@@ -94,7 +94,7 @@
                 android:layout_below="@+id/usageLabel"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/customerEmailLabel"
@@ -151,7 +151,7 @@
                 android:layout_below="@+id/firstnameLabel"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/lastnameLabel"
@@ -170,7 +170,7 @@
                 android:layout_below="@+id/lastnameLabel"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/primaryAddressLabel"
@@ -189,7 +189,7 @@
                 android:layout_below="@+id/primaryAddressLabel"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPostalAddress" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/secondaryAddressLabel"
@@ -208,7 +208,7 @@
                 android:layout_below="@+id/secondaryAddressLabel"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="textPostalAddress" />
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/zipcodeLabel"
@@ -246,8 +246,7 @@
                 android:layout_below="@+id/cityLabel"
                 android:layout_weight="1"
                 android:ems="10"
-                android:inputType="text" />
-
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/stateLabel"
@@ -263,7 +262,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_below="@+id/stateLabel"
-                android:inputType="text"/>
+                android:inputType="textCapWords" />
 
             <TextView
                 android:id="@+id/countryLabel"
